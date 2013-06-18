@@ -1,19 +1,18 @@
+
 import pymongo
 
 from pymongo import MongoClient
 
 
-# connect to db
+# connect to database
 connection = MongoClient('localhost', 27017)
 
-# db test
 db = connection.test
 
-# handle to "name" collection
-# db.names
+# handle to names collection
 names = db.names
 
 item = names.find_one()
 
-# get 'name'
 print item['name']
+
