@@ -1,4 +1,3 @@
-
 import bottle
 import pymongo
 
