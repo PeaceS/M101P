@@ -5,9 +5,11 @@ def analyze_list(l):
   
   counts = {}
   for item in l:
-  
-    counts[item] = count[item] + 1
-    
+    if item in counts:
+      counts[item] = count[item] + 1
+    else:
+      counts[item] = 1
+      
   return counts
   
   
