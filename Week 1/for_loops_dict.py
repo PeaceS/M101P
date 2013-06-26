@@ -1,6 +1,6 @@
 person = {'name':"Peace Saravudecha", 'favorite_color':'blue','hair':'brown','interests':['cycling','running','biking']}
 
-for key in person
+for key in person:
   
   if (key == 'interests'):
     print "Interests ...."
