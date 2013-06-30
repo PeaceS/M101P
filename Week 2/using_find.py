@@ -6,8 +6,8 @@ import sys
 connection = pymongo.Connection("mongodb://localhost", safe=True)
 
 # get a handle to the school database
-db=connection.school
-scores = db.scores
+db=connection.students
+scores = db.grades
 
 
 def find():
@@ -47,4 +47,5 @@ def find_one():
 
 
 find()
+find_one()
 
