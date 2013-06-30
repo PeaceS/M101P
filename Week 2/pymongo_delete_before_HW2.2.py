@@ -10,7 +10,7 @@ db=connection.students
 scores = db.grades
 
 
-def find():
+def delete():
 
     query = {'type':'homework'}
 
@@ -25,16 +25,15 @@ def find():
     printSkip = False
     for doc in cursor:
         if not printSkip:
-            print "%s : %s" % (doc['student_id'], doc['score'])
 
             try:
-                query_2 = {'sutdent_id':doc['student_id'],'score':doc['score']}
-                cursor_2 = scores.find(query_2)
-                cursor_2 = cursor_2.remove()
+                query_2 = {'_id':doc['_id']}
+                cursor_2 = scores.remove(query_2)
+                print "Deleted: %s of %s" % (doc['score'], doc['student_id'])
             except:
                 print "Cannot delete:", sys.exc_info()[0]
-                #scores.find({'sutdent_id':doc['student_id'],'score':doc['score']}).remove()
+                
         printSkip = not printSkip
     
-find()
+delete()
 
