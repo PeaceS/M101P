@@ -10,6 +10,3 @@ M101P, MongoDB course from 10gen
 <br />Course URL: https://education.10gen.com/courses/10gen/M101P/2013_June/about
 <br />Required: MongoDB, Python, Pymongo, Bottle framework
 <br />Date: June 17, 2013 - August 5, 2013
-
-- [ ] test
-- [x] test2
