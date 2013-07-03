@@ -5,8 +5,8 @@ import sys
 connection = pymongo.Connection("mongodb://localhost", safe=True)
 
 # get a handle to the school database
-db=connection.students
-student = db.grades
+db=connection.school
+student = db.students
 
 
 def delete():
