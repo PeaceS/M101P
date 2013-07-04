@@ -42,7 +42,7 @@ def delete():
                     print "Found: %f of %s" % (score_store, doc['_id'])
                     theStudent = student.find_one({'_id':doc['_id']})
                     print theStudent['scores']
-                    theQuery = {'score':score_store}
+                    theQuery = {'score':score_store,'type':'homework'}
                     theCursor = theStudent['scores'].remove(theQuery)
                 except:
                     print "Cannot update:", sys.exc_info()[0]
