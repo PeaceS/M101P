@@ -55,7 +55,7 @@ class BlogPostDAO:
         # now insert the post
         try:
             # XXX HW 3.2 Work Here to insert the post
-            self.posts.save(post)
+            self.posts.insert(post)
             print "Inserting the post"
         except:
             print "Error inserting post"
@@ -69,7 +69,7 @@ class BlogPostDAO:
         cursor = []         # Placeholder so blog compiles before you make your changes
 
         # XXX HW 3.2 Work here to get the posts
-
+        cursor = self.posts.find()
         l = []
 
         for post in cursor:
@@ -93,7 +93,7 @@ class BlogPostDAO:
 
         post = None
         # XXX Work here to retrieve the specified post
-
+        post = self.posts.find_one({"permalink":permalink})
         if post is not None:
             # fix up date
             post['date'] = post['date'].strftime("%A, %B %d %Y at %I:%M%p")
@@ -107,11 +107,13 @@ class BlogPostDAO:
 
         if (email != ""):
             comment['email'] = email
-
+        print "Comment by %s " % comment['author']
         try:
             last_error = {'n':-1}           # this is here so the code runs before you fix the next line
             # XXX HW 3.3 Work here to add the comment to the designated post
-
+            post = self.posts.find_one({"permalink":permalink})
+            post['comments'].append(comment)
+            self.posts.save(post)
 
             return last_error['n']          # return the number of documents updated
 
